@@ -25,6 +25,7 @@ public class Atividade7 {
                 atividade.escolhaPares();
                 break;
             case 2:
+                atividade.escolhaImpares();
                 break;
             case 3:
                 break;
@@ -53,7 +54,17 @@ public class Atividade7 {
                 System.out.println("numeros pares "+i);
             }
         }
+    }
+    private void escolhaImpares(){
+        Scanner sc = new Scanner(System.in);
+        int numero;
+        System.out.println("Digite um numero");
+        numero = sc.nextInt();
 
-
+        for (int i = 0; i <= numero; i++) {
+            if(i % 2 == 1){
+                System.out.println("numeros ímpares: "+i);
+            }
+        }
     }
 }
