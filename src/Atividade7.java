@@ -1,4 +1,8 @@
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Scanner;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class Atividade7 {
     public static void main(String[] args) {
@@ -31,12 +35,14 @@ public class Atividade7 {
                 atividade.escolhaPrimos();
                 break;
             case 4:
+                atividade.escolhaCalculoJuros();
                 break;
 
             case 0:
+                System.out.println("Saindo do programa!");
                 break;
-
             default:
+                System.out.println("Valor inválido! Digite novamente!");
                 break;
 
         }
@@ -85,10 +91,42 @@ public class Atividade7 {
                 System.out.println(i + " " +primo);
 
             }
-
         }
+    }
+
+    private void escolhaCalculoJuros(){
+        double valorInicial = 0.0;
+
+        boolean valida = true;
+        do {
+            System.out.println("Digite um numero: ");
+            Scanner sc = new Scanner(System.in);
+            valorInicial = sc.nextDouble();
+            if( valorInicial < 0){
+                System.out.println("Erro, valor deve ser positivo!");
+            } else {
+                valida = false;
+            }
+        }while (valida);
 
 
+        Locale locale = new Locale("pt", "BR");
+        NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(locale);
 
-}
+      // double valorInicial = 5000.00; // valor original
+        double percentual = 2.0 / 100.0; // 2%
+
+        System.out.println("Valor inicial de investimento: " + currencyFormatter.format(valorInicial));
+
+        for (int mes = 1; mes <= 24; mes++) {
+
+            double valorLucro = percentual * valorInicial;
+            valorInicial += (valorInicial * percentual);
+
+            System.out.println("*****************************");
+            System.out.println("Mês: "+ mes);
+            System.out.println("Rendimento mensal de: "+ currencyFormatter.format(valorLucro));
+            System.out.println( "Valor atualizado: " + currencyFormatter.format(valorInicial));
+        }
+    }
 }
