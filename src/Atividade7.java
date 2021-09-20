@@ -28,6 +28,7 @@ public class Atividade7 {
                 atividade.escolhaImpares();
                 break;
             case 3:
+                atividade.escolhaPrimos();
                 break;
             case 4:
                 break;
@@ -66,4 +67,28 @@ public class Atividade7 {
             }
         }
     }
+
+    private void escolhaPrimos(){
+        int num;
+        System.out.println("Digite um numero: ");
+        Scanner sc = new Scanner(System.in);
+        num = sc.nextInt();
+
+        for (int i = 2; i <num ; i++) {
+            String primo = "numero primo";
+            for (int j = 2; j <i ; j++) {
+                if(i % j == 0){
+                    primo = "nao primo";
+                }
+            }
+            if(primo == "numero primo"){
+                System.out.println(i + " " +primo);
+
+            }
+
+        }
+
+
+
+}
 }
