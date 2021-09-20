@@ -42,7 +42,6 @@ public class Atividade7 {
 
     }
 
-
     private void escolhaPares(){
         Scanner sc = new Scanner(System.in);
         int numero;
