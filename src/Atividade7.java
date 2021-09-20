@@ -1,52 +1,56 @@
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Scanner;
-import java.text.NumberFormat;
-import java.util.Locale;
 
 public class Atividade7 {
-    public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-        int opcao;
-        Atividade7 atividade = new Atividade7();
-
+    private void exibirMenu() {
         System.out.println("+-------------------------------------------+");
-        System.out.println("+------------------Bem Vindo----------------+");
-        System.out.println("+-------------------------------------------+");
-        System.out.println("+-------------------------------------------+");
+        System.out.println("+------------------ Bem Vindo --------------+");
+        System.out.println("+-------------- Escolha uma opção ----------+");
         System.out.println("1) Numeros pares: ");
         System.out.println("2) Numeros impares: ");
         System.out.println("3) Numeros primos: ");
         System.out.println("4) Calculos de juros: ");
         System.out.println("0) Sai: ");
-        opcao = sc.nextInt();
+    }
 
+    public static void main(String[] args) {
 
-        switch (opcao){
+        short opcao = 5;
+        Scanner sc = new Scanner(System.in);
+        Atividade7 atividade = new Atividade7();
 
-            case 1:
-                atividade.escolhaPares();
-                break;
-            case 2:
-                atividade.escolhaImpares();
-                break;
-            case 3:
-                atividade.escolhaPrimos();
-                break;
-            case 4:
-                atividade.escolhaCalculoJuros();
-                break;
+        do {
+            atividade.exibirMenu();
+            System.out.println("Opção escolhida: ");
+            opcao = sc.nextShort();
 
-            case 0:
-                System.out.println("Saindo do programa!");
-                break;
-            default:
-                System.out.println("Valor inválido! Digite novamente!");
-                break;
+            switch (opcao) {
 
-        }
-
+                case 1:
+                    atividade.escolhaPares();//linha 56
+                    break;
+                case 2:
+                    atividade.escolhaImpares();//linha 69
+                    break;
+                case 3:
+                    atividade.escolhaPrimos();//linha 82
+                    break;
+                case 4:
+                    atividade.escolhaCalculoJuros(); //linha 101
+                    break;
+                case 5:
+                    atividade.exibirMenu();// linha 07
+                    break;
+                case 0:
+                    System.out.println("Saindo do programa!");
+                    break;
+                default:
+                    System.out.println("Valor inválido! Digite novamente!");
+                    break;
+            }
+        }while (opcao != 0);
     }
 
     private void escolhaPares(){
@@ -61,6 +65,7 @@ public class Atividade7 {
             }
         }
     }
+
     private void escolhaImpares(){
         Scanner sc = new Scanner(System.in);
         int numero;
@@ -89,7 +94,6 @@ public class Atividade7 {
             }
             if(primo == "numero primo"){
                 System.out.println(i + " " +primo);
-
             }
         }
     }
